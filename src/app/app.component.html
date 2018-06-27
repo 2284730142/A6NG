@@ -1,0 +1,100 @@
+<nz-layout class="myLayout">
+  <nz-sider [nzBreakpoint]="'md'" [nzCollapsible]="true" [(nzCollapsed)]="isCollapsed"
+            [nzCollapsedWidth]="0" (nzCollapsedChange)="nzCollapsedChange($event)"
+            class="mySider" [ngStyle]="dark?{background:'#001529'}:{background:'white'}">
+    <nz-layout>
+      <nz-header class="myHeader2">
+        <i class="anticon anticon-chrome"></i> A6NG
+      </nz-header>
+    </nz-layout>
+    <ul nz-menu [nzMode]="mode?'vertical':'inline'" [nzTheme]="dark?'dark':'light'">
+      <li nz-submenu [(nzOpen)]="openMap.sub1" (nzOpenChange)="openHandler('sub1')">
+        <span title><i class="anticon anticon-smile-o"></i> 菜单栏模式</span>
+        <ul>
+          <li nz-menu-item>
+            模式
+            <nz-switch [(ngModel)]="mode"></nz-switch>
+          </li>
+          <li nz-menu-item>
+            主题
+            <nz-switch [(ngModel)]="dark"></nz-switch>
+          </li>
+        </ul>
+      </li>
+      <li nz-submenu [(nzOpen)]="openMap.sub2" (nzOpenChange)="openHandler('sub2')">
+        <span title><i class="anticon anticon-appstore"></i> 用户页面</span>
+        <ul>
+          <li nz-menu-item>登录</li>
+          <li nz-menu-item>注册</li>
+          <li nz-menu-item>忘记密码</li>
+        </ul>
+      </li>
+      <li nz-submenu [(nzOpen)]="openMap.sub3" (nzOpenChange)="openHandler('sub3')">
+        <span title><i class="anticon anticon-setting"></i> Navigation Three</span>
+        <ul>
+          <li nz-menu-item>Option 9</li>
+          <li nz-menu-item>Option 10</li>
+          <li nz-menu-item>Option 11</li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout class="myBody">
+    <nz-header class="myHeader">
+      <nz-row>
+        <!--大屏幕启用 小屏幕消失-->
+        <nz-col [nzOffset]="3" [nzXXl]="6" [nzXl]="6" [nzLg]="0" [nzMd]="0" [nzSm]="0" [nzXs]="0">
+          <nz-input-group nzSuffixIcon="anticon anticon-search">
+            <input type="text" nz-input placeholder="搜索">
+          </nz-input-group>
+        </nz-col>
+        <!--适配ipad-->
+        <nz-col [nzOffset]="5" [nzXXl]="0" [nzXl]="0" [nzLg]="4" [nzMd]="0" [nzSm]="0" [nzXs]="0">
+          <nz-input-group nzSuffixIcon="anticon anticon-search">
+            <input type="text" nz-input placeholder="搜索">
+          </nz-input-group>
+        </nz-col>
+        <nz-col [nzOffset]="9" [nzXXl]="6" [nzXl]="6" [nzLg]="6" [nzMd]="15" [nzSm]="15" [nzXs]="15">
+          <nz-row class="myHeader-right">
+            <nz-col [nzXXl]="4" [nzXl]="4" [nzLg]="4" [nzMd]="0" [nzSm]="0" [nzXs]="0">
+              <div class="F11" (click)="F11()">F11</div>
+            </nz-col>
+            <nz-col [nzXXl]="4" [nzXl]="4" [nzLg]="4" [nzMd]="4" [nzSm]="4" [nzXs]="4">
+              <div class="F11">
+                <i class="iconfont icon-iconfontzhizuobiaozhun41"></i>
+              </div>
+            </nz-col>
+            <nz-col [nzXXl]="12" [nzXl]="12" [nzLg]="12" [nzMd]="12" [nzSm]="12" [nzXs]="12">
+              <div class="F11">
+                <nz-avatar [nzShape]="'circle'" [nzSrc]="'./assets/img/header.jpg'" nzSize="large"></nz-avatar>
+                <span *ngIf="!isCollapsed">&nbsp;BlackFOX</span>
+              </div>
+            </nz-col>
+            <nz-col [nzXXl]="4" [nzXl]="4" [nzLg]="4" [nzMd]="8" [nzSm]="8" [nzXs]="8">
+              <div class="F11" (click)="openRightTriggerOption()">
+                <i class="anticon anticon-menu-fold"></i>
+              </div>
+            </nz-col>
+          </nz-row>
+        </nz-col>
+      </nz-row>
+    </nz-header>
+    <nz-content>
+      <nz-col [nzOffset]="3" [nzXXl]="21" [nzXl]="21" [nzLg]="0" [nzMd]="0" [nzSm]="0" [nzXs]="0">
+        Content
+      </nz-col>
+      <nz-col [nzOffset]="5" [nzXXl]="0" [nzXl]="0" [nzLg]="19" [nzMd]="0" [nzSm]="0" [nzXs]="0">
+        Content
+      </nz-col>
+      <nz-col [nzXXl]="0" [nzXl]="0" [nzLg]="0" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+        Content
+      </nz-col>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+<div class="right-trigger" [ngStyle]="rightTrigger?{opacity:0.6,'z-index':100}:{opacity:0,'z-index':'-100'}"
+     (click)="closeRightTriggerOption()">
+</div>
+<div class="right-trigger-content" [ngStyle]="rightTrigger?{right:0,'z-index':100}:{right:'-200px','z-index':'-100'}">
+
+</div>

@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css";
+@import "assets/font/icon/iconfont.css";
+
+/* 必要的样式修改 */
+.ant-layout-sider-zero-width-trigger {
+  top: 0px;
+  right: -64px;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  font-size: 28px;
+  border-radius: 0;
+  z-index: 100;
+}
